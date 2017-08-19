@@ -4,15 +4,22 @@
         <meta charset="UTF-8">
         <title>NEWS FROM NEWSAPI.ORG</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.6.4/angular.min.js"></script>
         <script src="news.js"></script>
     </head>
     <body ng-app="newsApp" ng-controller="newsCtrl">
 
         <div class="container">
             <h1>Today's News:</h1>
-            <div>
-                
+            <div ng-repeat="oneSource in sources">
+                <h3 class="alert alert-info">
+                    <a ng-href="{{oneSource.url}}">
+                    {{oneSource.title}}</a>
+                </h3>
+                <p><span style="font-weight: bold">Author: </span>{{oneSource.author}}</p>
+                <p><span style="font-weight:bold"> Published on: </span>{{oneSource.publishedAt}}</p>
+                <p><span style="font-weight:bold"> Description: </span>{{oneSource.description}}</p>
+                <img ng-src="{{oneSource.urlToImage}}">
             </div>
         </div>
         
