@@ -6,8 +6,10 @@ app.controller('newsCtrl', function($scope, $http) {
         $http.get("https://newsapi.org/v1/articles?source=" + newsSourses[i] + "&apiKey=" + my_api_key)
         .then( 
             function(response){
-                $scope.sources = response.data;
+                $scope.sources = response.data.source;
                 console.log($scope.sources);
+                $scope.sourcesData = response.data.articles;
+                console.log($scope.sourcesData[i]);
             }
          );
     }
